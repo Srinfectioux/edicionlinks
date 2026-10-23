@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Editor de mi página de links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/editor.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">✳</span> Mi página de links</div>
+    <span class="status" id="status"></span>
+    <div class="actions">
+      <button class="btn ghost" data-act="import" title="Importar un proyecto .json o un index.html exportado">Importar</button>
+      <button class="btn ghost" data-act="export-json" title="Guardar una copia editable del proyecto">Exportar proyecto</button>
+      <button class="btn ghost" data-act="reset">Restablecer</button>
+      <button class="btn ghost" data-act="open-full">Vista completa</button>
+      <button class="btn primary" data-act="download">Descargar HTML</button>
+    </div>
+    <input type="file" id="import-file" accept=".json,.html,.htm,application/json,text/html" hidden>
+  </header>
+
+  <div class="layout" id="layout" data-view="profile">
+    <aside class="panel">
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="profile">Perfil</button>
+        <button class="tab" data-tab="links">Links</button>
+        <button class="tab" data-tab="appearance">Apariencia</button>
+        <button class="tab only-mobile" data-tab="preview">Vista previa</button>
+      </nav>
+      <div class="tab-body" id="panel">
+        <div class="pane" id="pane-profile"></div>
+        <div class="pane" id="pane-links" hidden></div>
+        <div class="pane" id="pane-appearance" hidden></div>
+      </div>
+    </aside>
+    <section class="preview">
+      <div class="phone"><iframe id="preview" title="Vista previa"></iframe></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="assets/themes.js"></script>
+  <script src="assets/render.js"></script>
+  <script src="assets/editor.js"></script>
+</body>
+</html>
